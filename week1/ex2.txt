@@ -1,0 +1,38 @@
+    1  mkdir ~/week1
+    2  cd ~/week1
+    3  whoami
+    4  hostname
+    5  man whoami
+    6  man man
+    7  less
+    8  less week1
+    9  cd ~/
+   10  less week1
+   11  cd ~/week1
+   12  less /usr/bin
+   13  man -h
+   14  man --help
+   15  q
+   16  man --help
+   17  man -h | head
+   18  ls /usr/bin | grep gcc | sort -r > /week1/ex1.txt 
+   19  ls /usr/bin | grep gcc | sort -r > /week1/
+   20   grep gcc /usr/bin > ~/week1
+   21   grep gcc /usr/bin > ~/week1
+   22  history > ex2.txt
+   23  less ex2.txt
+   24  grep gcc /usr/bin/ | sort -r > ex1.txt
+   25  less ex1.txt
+   26  grep -r "gcc" ls /usr/bin/ > ex1.txt
+   27  grep "gcc" ls /usr/bin/ | sort -r  > ex1.txt
+   28  less ex1.txt
+   29  grep -r  "gcc" ls /usr/bin/ | sort -r  > ex1.txt
+   30  grep -r  "gcc" ls /usr/bin/ | sort -r  > ex1.txt
+   31  history > ex2.txt
+   32* grep gcc ls /usr/bin
+   33  grep -r  gcc ls /usr/bin/ | sort -r  > ex1.txt
+   34  history > ex2.txt
+   35  ls gcc /usr/bin > listik.txt
+   36  ls /usr/bin > listik.txt
+   37  grep gcc listik.txt | sort -r  > ex1.txt
+   38  history > ex2.txt

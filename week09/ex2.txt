@@ -1,0 +1,2 @@
+111 125 111 125 119 125 11 111 1020 2201 2201 2000 111 125 1432
+After requesting 15 pages there will be better hit/miss ratios. It happens because the same pages appear more often in my input, while on the other input they appear after longer periods of time.

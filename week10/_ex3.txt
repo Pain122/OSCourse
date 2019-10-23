@@ -1,0 +1,7 @@
+-rw-r--r-- 1 manjaro manjaro 0 Oct 23 12:58 _ex3.txt
+-rwx---rwx 1 manjaro manjaro 53 Oct 23 12:58 _ex3.txt
+-rwxrwxrwx 1 manjaro manjaro 107 Oct 23 12:59 _ex3.txt
+
+660 means -rw-rw---- (User and Group can read and write to file)
+775 means -rwxrwxr-x (User and Group can read write and execute file, Group can read and execute file)
+777 means -rwxrwxrwx (User, Group and Group can read write and execute file)

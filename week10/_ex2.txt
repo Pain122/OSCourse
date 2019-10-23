@@ -1,0 +1,8 @@
+2 step output:
+/home/manjaro/OSCourse/week10/_ex2.txt
+/home/manjaro/OSCourse/week1/file.txt
+
+3 step deletes the link and therefore, we can no longer access file.txt from this file
+
+inodenumber of _ex2.txt after 2 step: 598
+inodenumber of _ex2.txt after 2 step: 638

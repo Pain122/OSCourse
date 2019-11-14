@@ -1,0 +1,51 @@
+Firstly, let us get a simplistic overview on these strategies:
+	1) Recovery: Let the deadlocks happen, detect them and take action
+	2) Prevention: structurally negate one of the four deadlock conditions (Mutual exclusion, Hold-and-wait, No-preemption, Circular wait)
+	3) Avoidance: careful resource allocation
+
+1) Recovery:
+We have 3 methods in this strategy of dealing with deadlocks:
+	1)Recovery through Preemption: In some cases it is possible to temporarily take a resource away from current owner and give it to another process
+				       This method is highly dependent on the nature of the resource, it is difficult and neatly impossible to implement this method.
+	2)Recovery through Rollback: It uses the technique called checkpointing (state of programm is written to a file so that it can be restarted later from this point). 
+	  If the system meets the deadlock, it will reset one of the processes to the earlier point using checkpoint and will not give a resource to this program, until others have used it.
+	3)Recovery through Killing Processes: The crudest way is just to kill one or more processes in case of deadlock. The process to be killed is chosen carefully to not damage the system
+
+	Conclusions on 1)
+	1) Recovering this way is frequently difficult or impossible. Choosing the process to suspend depends largely on which ones have resources that can easily be taken back.
+	2) Works, but needs complicated methods for checkpointing in the proramm
+	3) The crudest and the most simpliest method. But it requires looking at what processes can be terminated without risks
+
+2) Deadlock Avoidance:
+Deadlocks can be avoided, but only if certain info is available in advance: The system must be able to decide whether granting a resource is safe or not and make the allocation only when it is safe. 
+This method uses safe/unsafe state and Banker's Algorythm to perform
+
+	Conclusions on 2)
+	1) This method is nearly impossible to implement because it requires information amout future requests, which is not known.
+
+3) Deadlock Prevention:
+	1) Attacking the  Mutual-Exclusion condition: Avoid assigning a resource unless absolutely necessary, and try to make sure that as few processes as possible may actually claim the resource.
+	2) Attacking the Hold-and-Wait condition:  All processes should be required to request all their resources before starting execution. 
+						   If everything is available, the process will be allocated whatever it needs and can run to completion.
+						   Another approach is to require a process requesting a resource to first temporarily release all the resources it currently holds. 
+						   Then it tries to get everything it needs all at once.
+	3) Attacking the No-Preemption condition: First solution is to take back resources that process uses (nearly impossible)
+						  Some resources can be virtualized. Spooling printer output to the disk and allowing only the printer daemon access 
+						  to the real printer eliminates deadlocks involving the printer, although it creates a potential for deadlock over disk space.
+	4) Attacking the Circular Wait Condition: One way is simply to have a rule saying that a process is entitled only to a single resource at any moment. 
+						  If it needs a second one, it must release the first one.
+						  Another way is to provide a global numbering of all the resources. 
+						  Every process is granted access to a resource with number that is greater than number of previously acquainted resources.
+						  With this rule, the resource allocation graph can never have cycles
+
+	Conclusions on 3)
+	1) has a germ of idea that is partially applicable (for exaple, it doesn't work in case if printer is made to print only if full file is loaded. In case if the memory of printer is full 
+	   but all files are partially loaded, we will never reach the end of a programm)
+	2) Has some problems, such as, we do not know how many resource will be necessary to processes (otherwise Banker's alg could be used).
+	   While this method puts a burden on the programmer and wastes resources, it does prevent deadlocks.
+	3) Not all resources can be virtualized like this. For example, records in databases or tables inside the operating system must be locked to be used and therein lies the potential for deadlock.
+	4) Although numerically ordering the resources eliminates the problem of deadlocks, it may be impossible to find an ordering that satisfies everyone. 
+	   When the resources include process-table slots, disk spooler space, locked database records, and other abstract resources,
+	   the number of potential resources and different uses may be so large that no ordering could possibly work. 
+
+In the end, Avoidance proved to be nearly impossible to implement, recovery is generally good, but better to not be used and Prevention is wasting a lot of resources but works
